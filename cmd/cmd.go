@@ -3,9 +3,9 @@ package cmd
 import (
 	"os"
 
-	"github.com/shuwenhe/shuwen-shop/config"
-	utils "github.com/shuwenhe/shuwen-shop/db"
-	"github.com/shuwenhe/shuwen-shop/router"
+	"github.com/shuwenhe/shuwen-shop-admin/config"
+	utils "github.com/shuwenhe/shuwen-shop-admin/db"
+	"github.com/shuwenhe/shuwen-shop-admin/router"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
