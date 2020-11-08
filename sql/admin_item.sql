@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for item
 -- ----------------------------
-DROP TABLE IF EXISTS `item`;
-CREATE TABLE `item` (
+DROP TABLE IF EXISTS `admin_item`;
+CREATE TABLE `admin_item` (
   `id` bigint(20) NOT NULL COMMENT '商品id,同时也是商品编号',
   `title` varchar(100) NOT NULL COMMENT '商品标题',
   `sell_point` varchar(500) DEFAULT NULL COMMENT '商品卖点',

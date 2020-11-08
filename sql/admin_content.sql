@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for content
 -- ----------------------------
-DROP TABLE IF EXISTS `admin-content`;
-CREATE TABLE `admin-content` (
+DROP TABLE IF EXISTS `admin_content`;
+CREATE TABLE `admin_content` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_id` bigint(20) NOT NULL COMMENT '内容类目ID',
   `title` varchar(200) DEFAULT NULL COMMENT '内容标题',

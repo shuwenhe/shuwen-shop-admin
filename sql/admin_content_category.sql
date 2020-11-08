@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for content_category
 -- ----------------------------
-DROP TABLE IF EXISTS `admin-content_category`;
-CREATE TABLE `admin-content_category` (
+DROP TABLE IF EXISTS `admin_content_category`;
+CREATE TABLE `admin_content_category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `parent_id` bigint(20) NOT NULL COMMENT '父类目ID=0时，代表的是一级的类目',
   `name` varchar(50) NOT NULL COMMENT '分类名称',

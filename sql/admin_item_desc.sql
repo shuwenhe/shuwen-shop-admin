@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for item_desc
 -- ----------------------------
-DROP TABLE IF EXISTS `item_desc`;
-CREATE TABLE `item_desc` (
+DROP TABLE IF EXISTS `admin_item_desc`;
+CREATE TABLE `admin_item_desc` (
   `item_id` bigint(20) NOT NULL COMMENT '商品ID',
   `item_desc` text COMMENT '商品描述',
   `created` datetime DEFAULT NULL COMMENT '创建时间',

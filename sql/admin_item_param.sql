@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for item_param
 -- ----------------------------
-DROP TABLE IF EXISTS `item_param`;
-CREATE TABLE `item_param` (
+DROP TABLE IF EXISTS `admin_item_param`;
+CREATE TABLE `admin_item_param` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `item_cat_id` bigint(20) DEFAULT NULL COMMENT '商品类目',
   `param_data` text COMMENT '参数数据，格式为json格式',
