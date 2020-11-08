@@ -7,21 +7,21 @@ import (
 	"github.com/shuwenhe/shuwen-shop-admin/model"
 )
 
-func GetUser2(name, password string) (*model.User, error) {
-	log.Println("name-dao = *** = ", name)
+func GetUser(username, password string) (*model.User, error) {
+	log.Println("name-dao = *** = ", username)
 	log.Println("password-dao = *** = ", password)
 	sql := "select * from users where username=? and password=?"
 	log.Println("sql = *** = ", sql)
-	row := utils.Db.QueryRow(sql, name, password)
+	row := utils.Db.QueryRow(sql, username, password)
 	log.Println("row = *** = ", row)
 	user := &model.User{}
 	log.Println("user = *** = ", user)
-	row.Scan(&user.ID, &user.Username, &user.Password, &user.Phone, &user.Email, &user.Created, &user.Updated)
+	row.Scan(&user.ID, &user.Username, &user.Password, &user.Email)
 	log.Println("user = *** = ", user)
 	return user, nil
 }
 
-func GetUser(username string, password string) (*model.User, error) {
+func GetUser2(username string, password string) (*model.User, error) {
 	sql := "select id,username,password,email from users where username = ? and password = ?"
 	row := utils.Db.QueryRow(sql, username, password)
 	user := &model.User{}

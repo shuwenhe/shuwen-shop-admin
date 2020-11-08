@@ -9,8 +9,8 @@ import (
 )
 
 func GetUser(w http.ResponseWriter, r *http.Request) {
-	username := r.FormValue("username")
-	password := r.FormValue("password")
+	username := r.PostFormValue("username")
+	password := r.PostFormValue("password")
 	log.Println("name-controller = *** =", username)
 	log.Println("password-controller = *** =", password)
 	user, _ := service.GetUser(username, password)
@@ -27,6 +27,6 @@ func CheckUserName(w http.ResponseWriter, r *http.Request) {
 	} else {
 		w.Write([]byte("<font style = 'color:green'>用户名不存在！</font>"))
 	}
-	// bsUser, _ := json.Marshal(user)
-	// w.Write(bsUser)
+	bsUser, _ := json.Marshal(user)
+	w.Write(bsUser)
 }
