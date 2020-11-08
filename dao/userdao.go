@@ -3,7 +3,7 @@ package dao
 import (
 	"log"
 
-	"github.com/shuwenhe/shuwen-bookstore/utils"
+	utils "github.com/shuwenhe/shuwen-shop-admin/db"
 	"github.com/shuwenhe/shuwen-shop-admin/model"
 )
 
