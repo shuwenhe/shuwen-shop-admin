@@ -5,16 +5,12 @@ import (
 	"github.com/shuwenhe/shuwen-shop-admin/dao"
 )
 
-func GetItemByPage(rows, page int) (result common.Result) {
+func GetItemByPage(rows, page int) *common.Page {
+	pages := &common.Page{}
 	items, _ := dao.GetItemByPage(rows, page)
-	if len(items) > 0 {
-		result.Status = 200
-	} else {
-		result.Status = 400
-		result.Msg = "Get items fail!"
-		return
+	if items != nil {
+		pages.Rows = items
+		pages.Total = len(items)
 	}
-	result.Data = items
-	result.Msg = "Get items success!"
-	return
+	return pages
 }
