@@ -8,24 +8,10 @@ import (
 )
 
 func GetUser(username, password string) (*model.User, error) {
-	log.Println("name-dao = *** = ", username)
-	log.Println("password-dao = *** = ", password)
-	sql := "select * from users where username=? and password=?"
-	log.Println("sql = *** = ", sql)
-	row := utils.Db.QueryRow(sql, username, password)
-	log.Println("row = *** = ", row)
+	sql := "select * from admin_user where username=? and password=? or phone=? and password=? or email=? and password=?"
+	row := utils.Db.QueryRow(sql, username, password, username, password, username, password)
 	user := &model.User{}
-	log.Println("user = *** = ", user)
-	row.Scan(&user.ID, &user.Username, &user.Password, &user.Email)
-	log.Println("user = *** = ", user)
-	return user, nil
-}
-
-func GetUser2(username string, password string) (*model.User, error) {
-	sql := "select id,username,password,email from users where username = ? and password = ?"
-	row := utils.Db.QueryRow(sql, username, password)
-	user := &model.User{}
-	row.Scan(&user.ID, &user.Username, &user.Password, &user.Email)
+	row.Scan(&user.ID, &user.Username, &user.Password, &user.Phone, &user.Email, &user.Created, &user.Updated)
 	return user, nil
 }
 

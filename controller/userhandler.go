@@ -11,11 +11,10 @@ import (
 func GetUser(w http.ResponseWriter, r *http.Request) {
 	username := r.PostFormValue("username")
 	password := r.PostFormValue("password")
-	log.Println("name-controller = *** =", username)
-	log.Println("password-controller = *** =", password)
-	user, _ := service.GetUser(username, password)
-	bsUser, _ := json.Marshal(user)
-	w.Write(bsUser)
+	result := service.GetUser(username, password)
+	byteUser, _ := json.Marshal(result)
+	w.Header().Set("Content-Type", "application/json:charset=utf-8")
+	w.Write(byteUser)
 }
 
 func CheckUserName(w http.ResponseWriter, r *http.Request) {

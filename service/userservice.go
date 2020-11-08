@@ -3,18 +3,21 @@ package service
 import (
 	"log"
 
+	"github.com/shuwenhe/shuwen-shop-admin/common"
 	"github.com/shuwenhe/shuwen-shop-admin/dao"
 	"github.com/shuwenhe/shuwen-shop-admin/model"
 )
 
-func GetUser(username, password string) (*model.User, error) {
-	log.Println("name-service = *** =", username)
-	log.Println("password-service = *** =", password)
-	user, err := dao.GetUser(username, password)
-	if err != nil {
-		return nil, err
+func GetUser(username, password string) (result common.Result) {
+	user, _ := dao.GetUser(username, password)
+	if user.ID > 0 {
+		result.Status = 200
+	} else {
+		result.Status = 400
 	}
-	return user, nil
+	result.Data = user
+	result.Msg = "Login success!"
+	return
 }
 
 func CheckUserName(username string) (*model.User, error) {

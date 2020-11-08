@@ -1,7 +1,6 @@
 package router
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/shuwenhe/shuwen-shop-admin/controller"
@@ -14,8 +13,8 @@ func Run() {
 
 	http.HandleFunc("/login", controller.GetUser)
 	http.HandleFunc("/checkUserName", controller.CheckUserName)
+	http.HandleFunc("/getItemByPage", controller.GetItemByPage)
 
 	port := viper.GetString("server.port")
-	log.Println("port = *** = ", port)
 	http.ListenAndServe(port, nil)
 }
