@@ -13,6 +13,8 @@ func Run() {
 	http.Handle("/pages/", http.StripPrefix("/pages/", http.FileServer(http.Dir("views/pages"))))
 
 	http.HandleFunc("/login", controller.GetUser)
+	http.HandleFunc("/checkUserName", controller.CheckUserName)
+
 	port := viper.GetString("server.port")
 	log.Println("port = *** = ", port)
 	http.ListenAndServe(port, nil)
