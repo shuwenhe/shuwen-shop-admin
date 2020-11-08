@@ -3,6 +3,6 @@ server:
 db:
   hostname: 62.234.11.179
   port: 3306
-  username: shuwenshopadmin
-  password: Shuwenshopadmin.com@_00..
-  dbname: shuwenshopadmin
+  username: bookstore
+  password: Bookstore.com@_00..
+  dbname: bookstore

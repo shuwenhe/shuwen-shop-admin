@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"log"
 	"os"
 
 	"github.com/shuwenhe/shuwen-shop-admin/config"
@@ -31,13 +32,14 @@ func init() {
 
 func Execute() error {
 	rootCmd.RunE = func(cmd *cobra.Command, args []string) error {
-		_, err := utils.Mysql( // Before router init mysql
+		sqlDb, err := utils.Mysql( // Before router init mysql
 			viper.GetString("db.hostname"),
 			viper.GetInt("db.port"),
 			viper.GetString("db.username"),
 			viper.GetString("db.password"),
 			viper.GetString("db.dbname"),
 		)
+		log.Println("sqlDb = *** =", sqlDb)
 		if err != nil {
 			return err
 		}
