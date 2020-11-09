@@ -15,6 +15,7 @@ func Run() {
 	http.HandleFunc("/checkUserName", controller.CheckUserName)
 	http.HandleFunc("/getItemByPage", controller.GetItemByPage)
 	http.HandleFunc("/getItemCount", controller.GetItemCount)
+	http.HandleFunc("/getCategoryByID", controller.GetCategoryByID)
 
 	port := viper.GetString("server.port")
 	http.ListenAndServe(port, nil)
