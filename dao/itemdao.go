@@ -19,3 +19,11 @@ func GetItemByPage(rows, page int) ([]*model.Book, error) {
 	}
 	return items, nil
 }
+
+func GetItemCount() int64 {
+	sql := "select count(*) from books"
+	row := utils.Db.QueryRow(sql)
+	var totalRecord int64
+	row.Scan(&totalRecord)
+	return totalRecord
+}

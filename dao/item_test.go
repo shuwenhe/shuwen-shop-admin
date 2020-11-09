@@ -2,6 +2,7 @@ package dao
 
 import (
 	"fmt"
+	"log"
 	"testing"
 )
 
@@ -10,4 +11,9 @@ func testGetItemByPage(t *testing.T) {
 	for _, item := range items {
 		fmt.Println("item = *** =", item)
 	}
+}
+
+func TestGetItemCount(t *testing.T) {
+	totalRecord := GetItemCount()
+	log.Println("totalRecord = *** = ", totalRecord)
 }
