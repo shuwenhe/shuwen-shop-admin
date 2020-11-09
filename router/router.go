@@ -16,6 +16,7 @@ func Run() {
 	http.HandleFunc("/getItemByPage", controller.GetItemByPage)
 	http.HandleFunc("/getItemCount", controller.GetItemCount)
 	http.HandleFunc("/getCategoryByID", controller.GetCategoryByID)
+	http.HandleFunc("/deleteItemByID", controller.DeleteItemByID)
 
 	port := viper.GetString("server.port")
 	http.ListenAndServe(port, nil)

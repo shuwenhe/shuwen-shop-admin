@@ -27,3 +27,9 @@ func GetItemCount() int64 {
 	row.Scan(&totalRecord)
 	return totalRecord
 }
+
+func DeleteItemByID(id int) {
+	status := 3
+	sql := "update admin_item set status=? where id=?"
+	utils.Db.Exec(sql, status, id)
+}

@@ -28,3 +28,17 @@ func GetItemCount() *common.Result {
 	}
 	return result
 }
+
+func DeleteItemByID(id int) *common.Result {
+	result := &common.Result{}
+	if id <= 0 {
+		result.Status = 400
+		result.Msg = "ID is not null!"
+	} else {
+		dao.DeleteItemByID(id)
+		result.Status = 200
+		result.Msg = "Delete the item success!"
+
+	}
+	return result
+}
