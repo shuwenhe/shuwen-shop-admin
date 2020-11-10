@@ -42,3 +42,16 @@ func DeleteItemByID(id int) *common.Result {
 	}
 	return result
 }
+
+func InstockItemByID(id int) *common.Result {
+	result := &common.Result{}
+	if id <= 0 {
+		result.Status = 400
+		result.Msg = "ID is not null!"
+	} else {
+		dao.InstockItemByID(id)
+		result.Status = 200
+		result.Msg = "In stock the item success!"
+	}
+	return result
+}

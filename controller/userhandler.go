@@ -2,7 +2,6 @@ package controller
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/shuwenhe/shuwen-shop-admin/service"
@@ -19,8 +18,8 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 func CheckUserName(w http.ResponseWriter, r *http.Request) {
 	username := r.PostFormValue("username")
-	log.Println("username-controller = *** = ", username)
 	user, _ := service.CheckUserName(username)
+	w.Header().Set("Content-Type", "application/json:charset=utf-8")
 	if user.ID > 0 {
 		w.Write([]byte("用户名已存在！"))
 	} else {

@@ -33,3 +33,9 @@ func DeleteItemByID(id int) {
 	sql := "update admin_item set status=? where id=?"
 	utils.Db.Exec(sql, status, id)
 }
+
+func InstockItemByID(id int) {
+	status := 1
+	sql := "update admin_item set status=? where id = ?"
+	utils.Db.Exec(sql, status, id)
+}
